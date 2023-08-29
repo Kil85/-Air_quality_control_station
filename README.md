@@ -1,14 +1,12 @@
 # -Air_quality_control_station
-Kod napisany pod Arduino Uno, pisany w środowisku Visual Studio Code z pomocą rozszerzenia PlatformIO, który monitoruje jakość powietrza przy użyciu czujnika temperatury i wilgotności DHT11 oraz czujnika pyłu. Wyświetla temperaturę i wilgotność na wyświetlaczu LCD dodatkowo jakość powietrza (mierzoną przez czujnik pyłu) sygnalizowana jest za pomocą diod LED RGB. Kod zawiera również przerwanie przycisku, aby przełączać wyświetlanie temperatury/wilgotności i jakości powietrza na LCD.
+Here's a brief description of the code structure for an Arduino Uno project written in Visual Studio Code using the PlatformIO extension, which monitors air quality using a DHT11 temperature and humidity sensor, as well as a dust sensor. It displays temperature and humidity on an LCD display, and air quality (measured by the dust sensor) is indicated using RGB LEDs. The code also includes a button interrupt to toggle between displaying temperature/humidity and air quality on the LCD.
 
-Oto krótki opis struktury kodu:
+Libraries and Pin Definitions: Necessary libraries have been included, and pin definitions for sensors, LEDs, and the LCD display have been specified.
 
-Biblioteki i definicje pinów: Zostały dołączone niezbędne biblioteki, a także zostały zdefiniowane piny dla czujników, diod LED i wyświetlacza LCD.
+Global Variables: Variables for storing previous sensor readings, LCD display status flags, and the current air quality level have been declared.
 
-Zmienne globalne: Zadeklarowane są zmienne do przechowywania poprzednich odczytów czujników, flagi statusu wyświetlacza LCD oraz aktualnego poziomu jakości powietrza.
+Functions: Several helper functions have been defined for various tasks, such as setting the RGB LED color based on air quality, scrolling text on the LCD display, printing dust values, and clearing the display.
 
-Funkcje: Zdefiniowano kilka pomocniczych funkcji do różnych zadań, takich jak ustawianie koloru diod LED RGB na podstawie jakości powietrza, przewijanie tekstu na wyświetlaczu LCD, drukowanie wartości pyłu, czy czyszczenie wyświetlacza.
+Initialization: The setup() function initializes essential components, including serial communication, sensor initialization, LCD display setup, and button configuration.
 
-Inicjalizacja: W funkcji setup() inicjalizowane są niezbędne elementy, takie jak uruchomienie komunikacji szeregowej, inicjalizacja czujników, wyświetlacza LCD oraz przycisku.
-
-Pętla główna: W funkcji loop() następuje główna pętla programu. Jeśli flaga isDustOnTop jest ustawiona, wywoływana jest funkcja DustOnTop() do monitorowania jakości powietrza na górnym wierszu LCD. W przeciwnym razie wywoływana jest funkcja TempOnTop() do monitorowania temperatury i wilgotności na górnym wierszu LCD.
+Main Loop: The loop() function contains the main program loop. If the isDustOnTop flag is set, the DustOnTop() function is called to monitor air quality on the top row of the LCD. Otherwise, the TempOnTop() function is called to monitor temperature and humidity on the top row of the LCD.
