@@ -10,3 +10,5 @@ Functions: Several helper functions have been defined for various tasks, such as
 Initialization: The setup() function initializes essential components, including serial communication, sensor initialization, LCD display setup, and button configuration.
 
 Main Loop: The loop() function contains the main program loop. If the isDustOnTop flag is set, the DustOnTop() function is called to monitor air quality on the top row of the LCD. Otherwise, the TempOnTop() function is called to monitor temperature and humidity on the top row of the LCD.
+
+In addition, data is periodically sent to a dedicated endpoint for storage in a database. This process is executed in a multi-threaded manner, enabling efficient data collection and storage.
